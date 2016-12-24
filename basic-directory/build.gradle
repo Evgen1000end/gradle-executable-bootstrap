@@ -18,6 +18,10 @@ apply plugin: 'net.researchgate.release'
 
 release {
   buildTasks = ['verify']
+  git {
+    requireBranch = 'master'
+    pushToRemote = 'origin'
+  }
 }
 
 
