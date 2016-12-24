@@ -16,6 +16,10 @@ buildscript {
 
 apply plugin: 'net.researchgate.release'
 
+release {
+  buildTasks = ['verify']
+}
+
 
 dependencies {
 
