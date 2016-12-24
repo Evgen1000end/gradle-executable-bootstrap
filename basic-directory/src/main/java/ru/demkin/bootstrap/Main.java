@@ -7,8 +7,6 @@ import java.util.List;
  */
 public class Main {
 
-  public List<String> s;
-
   public static void main(String[] args) {
     System.out.println("Hello, world!");
   }
