@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <appender name="File" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>./logs/bootstrap-executable.log</file>
+    <encoder>
+      <pattern>%date{ISO8601} [%thread] %-5level %logger{25} - %message%n</pattern>
+    </encoder>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>./logs/bootstrap-executable.%d{yyyy-MM-dd}.log</fileNamePattern>
+      <maxHistory>14</maxHistory>
+    </rollingPolicy>
+  </appender>
+
+  <appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%date{ISO8601} [%thread] %-5level %logger{25} - %message%n</pattern>
+    </encoder>
+  </appender>
+  <logger name="com.moex.eif" level="INFO"/>
+
+  <root level="INFO">
+    <appender-ref ref="File"/>
+  </root>
+</configuration>
+
