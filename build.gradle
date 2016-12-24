@@ -6,6 +6,7 @@ subprojects {
   apply plugin: 'application'
   apply plugin: 'findbugs'
   apply plugin: 'checkstyle'
+  apply plugin: 'pmd'
 
   repositories {
     mavenCentral()
@@ -39,6 +40,12 @@ subprojects {
     toolVersion = '6.11'
     configFile = file("$rootProject.projectDir/config/checkstyle/checkstyle.xml")
   }
+
+  //PMD settings
+  pmd {
+    ruleSetFiles = files("$rootProject.projectDir/config/PDM/ruleSet.xml")
+  }
+
 
   //Test settings
   test {
