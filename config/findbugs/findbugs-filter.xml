@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!--
+  This file contains some false positive bugs detected by Findbugs.
+  Their false positive nature has been analyzed individually and they have been put here to instruct Findbugs it must ignore them.
+-->
+<FindBugsFilter>
+  <Match>
+    <!--
+      These inspections are not very important, can be included later when there are no other more important topics:
+      Category: Bad practice
+        SE_NO_SERIALVERSIONID: Class is Serializable, but doesn't define serialVersionUID
+      Category: Internationalization
+        DM_CONVERT_CASE: Consider using Locale parameterized version of invoked method
+        DM_DEFAULT_ENCODING: Reliance on default encoding
+      -->
+    <Bug pattern="SE_NO_SERIALVERSIONID, DM_CONVERT_CASE, DM_DEFAULT_ENCODING"/>
+  </Match>
+
+  <Match>
+    <Package name="com.moex.eif.esb.plaza.model"/>
+  </Match>
+
+  <Match>
+    <Class name="com.moex.eif.spectra.esbproxy.gateway.message.JmsMessageCreator"/>
+    <Bug pattern="BC_UNCONFIRMED_CAST"/>
+  </Match>
+
+  <Match>
+    <Class name="com.moex.eif.spectra.esbproxy.subscriber.RequestSubscriber"/>
+    <Bug pattern="BC_UNCONFIRMED_CAST"/>
+  </Match>
+
+  <Match>
+    <Class name="com.moex.eif.spectra.esbproxy.Test"/>
+  </Match>
+
+</FindBugsFilter>

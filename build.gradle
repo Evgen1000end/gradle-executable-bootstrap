@@ -4,6 +4,8 @@ version '1.0.0-SNAPSHOT'
 subprojects {
   apply plugin: 'java'
   apply plugin: 'application'
+  apply plugin: 'findbugs'
+  apply plugin: 'checkstyle'
 
   repositories {
     mavenCentral()
@@ -14,6 +16,29 @@ subprojects {
     testCompile 'org.testng:testng:6.9.10'
   }
   version = '1.0'
+
+  tasks.withType(FindBugs) {
+    reports {
+      xml.enabled false
+      html.enabled true
+    }
+  }
+
+  tasks.withType(Checkstyle) {
+    reports {
+      xml.enabled false
+      html.enabled true
+    }
+  }
+
+  findbugs {
+    excludeFilter = file("$rootProject.projectDir/config/findbugs/findbugs-filter.xml")
+  }
+
+  checkstyle {
+    toolVersion = '6.11'
+    configFile = file("$rootProject.projectDir/config/checkstyle/checkstyle.xml")
+  }
 }
 
 task wrapper(type: Wrapper) {
