@@ -1,0 +1,21 @@
+group 'ru.demkin'
+version '1.0.0-SNAPSHOT'
+
+subprojects {
+  apply plugin: 'java'
+  apply plugin: 'application'
+
+  repositories {
+    mavenCentral()
+    jcenter()
+  }
+  sourceCompatibility = 1.8
+  dependencies {
+    testCompile 'org.testng:testng:6.9.10'
+  }
+  version = '1.0'
+}
+
+task wrapper(type: Wrapper) {
+  gradleVersion = '3.2.1'
+}

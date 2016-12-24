@@ -1,0 +1,4 @@
+rootProject.name = 'executable-bootstrap'
+include 'build-tools'
+include 'basic-directory'
+
